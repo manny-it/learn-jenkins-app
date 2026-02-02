@@ -24,7 +24,7 @@ pipeline {
                 ls -l build | grep index
                 '''
             }
-            steps(running npm test) {
+            steps('running npm test') {
                 sh '''
                 npm test
                 '''
