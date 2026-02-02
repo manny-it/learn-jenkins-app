@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh '''
                 echo "Build stage"
-                echo "$PWD"
+                echo "your working dir is: $PWD"
                 ls -la
                 '''
             }
@@ -22,6 +22,11 @@ pipeline {
                 sh '''
                 echo "This is a test"
                 ls -l build | grep index
+                '''
+            }
+            steps(running npm test) {
+                sh '''
+                npm test
                 '''
             }
 
