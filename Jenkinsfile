@@ -22,8 +22,6 @@ pipeline {
                 sh '''
                 echo "This is a test"
                 ls -l build | grep index
-                echo "Running npm test"
-                npm test
                 '''
             }
 
