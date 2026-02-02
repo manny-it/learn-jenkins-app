@@ -7,25 +7,23 @@ pipeline {
                 docker {
                     image 'node:18-alpine'
                     reuseNode true
+                    }
                 }
-            }
-        stage ('Test') {
             steps {
                 sh '''
-                echo "Test stage"
+                echo "Build stage"
+                echo "$PWD"
+                ls -la
                 '''
             }
         }
+        stage('Test') {
             steps {
                 sh '''
-                    ls -la
-                    node --version
-                    npm --version
-                    npm ci
-                    npm run build
-                    ls -la
+                echo "This is a test"
                 '''
             }
+
         }
     }
 }
