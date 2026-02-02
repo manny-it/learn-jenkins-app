@@ -22,10 +22,7 @@ pipeline {
                 sh '''
                 echo "This is a test"
                 ls -l build | grep index
-                '''
-            }
-            steps('running npm test') {
-                sh '''
+                echo "Running npm test"
                 npm test
                 '''
             }
