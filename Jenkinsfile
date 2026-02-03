@@ -8,6 +8,7 @@ pipeline {
                     image 'node:18-alpine'
                     reuseNode true
                     }
+                    // This is a comment
                 }
             steps {
                 sh '''
