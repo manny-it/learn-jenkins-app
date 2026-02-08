@@ -17,6 +17,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    echo "small change"
                     echo 'We now using poll scm'
                     ls -la
                     node --version
