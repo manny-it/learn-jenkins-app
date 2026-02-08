@@ -17,6 +17,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    echo 'We now using poll scm'
                     ls -la
                     node --version
                     npm --version
