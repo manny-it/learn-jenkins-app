@@ -52,13 +52,13 @@ pipeline {
                     }
                 }
 
-                stage('E2E') {
-                    agent {
-                        docker {
-                            image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
-                            reuseNode true
-                        }
-                    }
+        stage('E2E') {
+            agent {
+                docker {
+                    image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
+                    reuseNode true
+                }
+            }
 
                     steps {
                         sh '''
@@ -95,12 +95,15 @@ pipeline {
                 '''
             }
         }
+
         stage('Appruval') {
             steps {
-                input message: 'Do you wish to deploy to production', ok: 'Yes, I am sure!'
+                {
+                input message: 'ready', ok: 'Yes, continue'
                 }
             }
         }
+
         stage('Deploy prod') {
             agent {
                 docker {
