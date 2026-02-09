@@ -98,9 +98,7 @@ pipeline {
 
         stage('Appruval') {
             steps {
-                {
                 input message: 'ready', ok: 'Yes, continue'
-                }
             }
         }
 
